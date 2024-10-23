@@ -1,0 +1,35 @@
+name: Gradle Package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Java
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'corretto'
+
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        gradle-version: 8.8
+
+    - name: Build with Gradle
+      run: ./gradlew build
+
+    - name: Publish to GitHub Packages
+      run: ./gradlew publish
+      env:
+        GPR_USER: ${{ secrets.GPR_USER }}
+        GPR_KEY: ${{ secrets.GPR_KEY }}
