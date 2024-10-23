@@ -4,7 +4,11 @@ plugins {
 }
 
 group = 'org.juane'
-version = '1.0.1'
+version = '1.0.2'
+
+java {
+    sourceCompatibility = 17
+}
 
 repositories {
     mavenCentral()
