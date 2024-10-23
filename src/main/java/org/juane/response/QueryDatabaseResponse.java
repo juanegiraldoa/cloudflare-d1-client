@@ -4,6 +4,7 @@ import org.juane.response.commons.Meta;
 import org.juane.response.commons.Response;
 
 import java.util.List;
+import java.util.Map;
 
 public class QueryDatabaseResponse extends Response {
     private List<Result> result;
@@ -19,7 +20,7 @@ public class QueryDatabaseResponse extends Response {
     public static class Result {
         private Boolean success;
         private Meta meta;
-        private List<Object> results;
+        private List<Map<String, Object>> results;
 
         public Boolean getSuccess() {
             return success;
@@ -37,11 +38,11 @@ public class QueryDatabaseResponse extends Response {
             this.meta = meta;
         }
 
-        public List<Object> getResults() {
+        public List<Map<String, Object>> getResults() {
             return results;
         }
 
-        public void setResults(List<Object> results) {
+        public void setResults(List<Map<String, Object>> results) {
             this.results = results;
         }
     }

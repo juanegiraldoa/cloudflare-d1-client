@@ -19,7 +19,7 @@ public class RawQueryDatabaseResponse extends Response {
     public static class Result {
         private Boolean success;
         private Meta meta;
-        private List<RawResult> results;
+        private RawResult results;
 
         public Boolean getSuccess() {
             return success;
@@ -37,11 +37,11 @@ public class RawQueryDatabaseResponse extends Response {
             this.meta = meta;
         }
 
-        public List<RawResult> getResults() {
+        public RawResult getResults() {
             return results;
         }
 
-        public void setResults(List<RawResult> results) {
+        public void setResults(RawResult results) {
             this.results = results;
         }
 
