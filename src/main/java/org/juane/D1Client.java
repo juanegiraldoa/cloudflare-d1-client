@@ -29,6 +29,10 @@ public class D1Client {
     private final Gson gson;
     private final HttpClient client;
 
+    public String getDatabaseId() {
+        return this.databaseId;
+    }
+
     private HttpRequest.Builder getRequest(String url) {
         return HttpRequest.newBuilder()
                 .uri(URI.create(url))
