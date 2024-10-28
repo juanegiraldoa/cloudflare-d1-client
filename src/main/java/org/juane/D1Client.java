@@ -33,6 +33,10 @@ public class D1Client {
         return this.databaseId;
     }
 
+    public String getAccountId() {
+        return this.accountId;
+    }
+
     private HttpRequest.Builder getRequest(String url) {
         return HttpRequest.newBuilder()
                 .uri(URI.create(url))
