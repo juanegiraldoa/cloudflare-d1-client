@@ -1,4 +1,4 @@
-package org.juane.response.commons;
+package dev.juanes.response.commons;
 
 public class Message {
     private Integer code;
@@ -8,15 +8,7 @@ public class Message {
         return code;
     }
 
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
     public String getMessage() {
         return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 }
