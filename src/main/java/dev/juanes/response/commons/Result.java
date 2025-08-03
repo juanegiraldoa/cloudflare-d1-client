@@ -30,7 +30,10 @@ public class Result {
     private String status;
     private Boolean success;
     private String type;
-    private ExportResult result;
+    private ImportExportResult result;
+    private String filename;
+    @JsonProperty("upload_url")
+    private String uploadUrl;
 
     public String getCreatedAt() {
         return createdAt;
@@ -96,7 +99,15 @@ public class Result {
         return type;
     }
 
-    public ExportResult getResult() {
+    public ImportExportResult getResult() {
         return result;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public String getUploadUrl() {
+        return uploadUrl;
     }
 }

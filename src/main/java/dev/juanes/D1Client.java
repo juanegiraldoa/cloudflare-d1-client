@@ -6,6 +6,7 @@ import dev.juanes.request.CreateDatabaseRequest;
 import dev.juanes.request.DeleteDatabaseRequest;
 import dev.juanes.request.ExportDatabaseAsSQLRequest;
 import dev.juanes.request.GetDatabaseRequest;
+import dev.juanes.request.ImportSQLIntoDatabaseRequest;
 import dev.juanes.request.ListDatabasesRequest;
 import dev.juanes.request.QueryDatabaseRequest;
 import dev.juanes.request.RawQueryDatabaseRequest;
@@ -14,6 +15,7 @@ import dev.juanes.response.CreateDatabaseResponse;
 import dev.juanes.response.DeleteDatabaseResponse;
 import dev.juanes.response.ExportDatabaseAsSQLResponse;
 import dev.juanes.response.GetDatabaseResponse;
+import dev.juanes.response.ImportSQLIntoDatabaseResponse;
 import dev.juanes.response.ListDatabasesResponse;
 import dev.juanes.response.QueryDatabaseResponse;
 import dev.juanes.response.RawQueryDatabaseResponse;
@@ -113,7 +115,18 @@ public class D1Client {
         }
     }
 
-    // TODO: Import SQL into database
+    public ImportSQLIntoDatabaseResponse importSQLIntoDatabase(ImportSQLIntoDatabaseRequest body) {
+        try {
+            final String url = String.format("%s/accounts/%s/d1/database/%s/import", BASE_URL, accountId, databaseId);
+            final HttpRequest request = getRequest(url)
+                    .POST(HttpRequest.BodyPublishers.ofString(objectMapper.writeValueAsString(body)))
+                    .build();
+            final HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            return objectMapper.readValue(response.body(), ImportSQLIntoDatabaseResponse.class);
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public ListDatabasesResponse listDatabases(ListDatabasesRequest body) {
         try {
