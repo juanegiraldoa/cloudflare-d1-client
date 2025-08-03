@@ -40,4 +40,8 @@ public class CreateDatabaseRequest {
             return new CreateDatabaseRequest(this);
         }
     }
+
+    public static Builder builder() {
+        return new Builder();
+    }
 }

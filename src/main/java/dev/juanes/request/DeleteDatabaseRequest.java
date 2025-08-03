@@ -23,4 +23,8 @@ public class DeleteDatabaseRequest {
             return new DeleteDatabaseRequest(this);
         }
     }
+
+    public static Builder builder() {
+        return new Builder();
+    }
 }

@@ -58,4 +58,8 @@ public class ListDatabasesRequest {
             return new ListDatabasesRequest(this);
         }
     }
+
+    public static Builder builder() {
+        return new Builder();
+    }
 }

@@ -23,4 +23,8 @@ public class GetDatabaseRequest {
             return new GetDatabaseRequest(this);
         }
     }
+
+    public static Builder builder() {
+        return new Builder();
+    }
 }

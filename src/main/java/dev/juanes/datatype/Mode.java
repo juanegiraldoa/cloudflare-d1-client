@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 
 public enum Mode {
-    AUTO("value"),
+    AUTO("auto"),
     DISABLED("disabled");
 
     private final String value;

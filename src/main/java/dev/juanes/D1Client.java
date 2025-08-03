@@ -8,12 +8,14 @@ import dev.juanes.request.GetDatabaseRequest;
 import dev.juanes.request.ListDatabasesRequest;
 import dev.juanes.request.QueryDatabaseRequest;
 import dev.juanes.request.RawQueryDatabaseRequest;
+import dev.juanes.request.UpdateDatabasePartiallyRequest;
 import dev.juanes.response.CreateDatabaseResponse;
 import dev.juanes.response.DeleteDatabaseResponse;
 import dev.juanes.response.GetDatabaseResponse;
 import dev.juanes.response.ListDatabasesResponse;
 import dev.juanes.response.QueryDatabaseResponse;
 import dev.juanes.response.RawQueryDatabaseResponse;
+import dev.juanes.response.UpdateDatabasePartiallyResponse;
 
 import java.io.IOException;
 import java.net.URI;
@@ -70,7 +72,18 @@ public class D1Client {
         }
     }
 
-    // TODO: Update database partially
+    public UpdateDatabasePartiallyResponse updateDatabasePartially(UpdateDatabasePartiallyRequest body) {
+        try {
+            final String url = String.format("%s/accounts/%s/d1/database/%s", BASE_URL, accountId, body.getDatabaseId());
+            final HttpRequest request = getRequest(url)
+                    .method("PATCH", HttpRequest.BodyPublishers.ofString(""))
+                    .build();
+            final HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            return objectMapper.readValue(response.body(), UpdateDatabasePartiallyResponse.class);
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     // TODO: Export database as SQL
 
@@ -132,8 +145,8 @@ public class D1Client {
         this.databaseId = builder.databaseId;
         this.accountId = builder.accountId;
         this.accessToken = builder.accessToken;
-        this.objectMapper = new ObjectMapper()
-                .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        this.objectMapper = new ObjectMapper();
+                //.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         this.client = HttpClient.newHttpClient();
     }
 
@@ -160,5 +173,9 @@ public class D1Client {
         public D1Client build() {
             return new D1Client(this);
         }
+    }
+
+    public static Builder builder() {
+        return new Builder();
     }
 }

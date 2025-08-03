@@ -23,6 +23,8 @@ public class Meta {
     @JsonProperty("served_by_primary")
     private Boolean servedByPrimary;
     private Timings timings;
+    @JsonProperty("read_replication")
+    private ReadReplication readReplication;
 
     public String getServedBy() {
         return servedBy;
@@ -66,5 +68,9 @@ public class Meta {
 
     public Timings getTimings() {
         return timings;
+    }
+
+    public ReadReplication getReadReplication() {
+        return readReplication;
     }
 }

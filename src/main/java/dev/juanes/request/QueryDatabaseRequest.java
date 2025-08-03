@@ -37,4 +37,8 @@ public class QueryDatabaseRequest {
             return new QueryDatabaseRequest(this);
         }
     }
+
+    public static Builder builder() {
+        return new Builder();
+    }
 }

@@ -37,4 +37,8 @@ public class RawQueryDatabaseRequest {
             return new RawQueryDatabaseRequest(this);
         }
     }
+
+    public static Builder builder() {
+        return new Builder();
+    }
 }
