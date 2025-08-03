@@ -3,6 +3,8 @@ package dev.juanes.response.commons;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.juanes.datatype.Location;
 
+import java.util.List;
+
 public class Result {
     @JsonProperty("created_at")
     private String createdAt;
@@ -21,6 +23,14 @@ public class Result {
     private String runningInRegion;
     @JsonProperty("read_replication")
     private ReadReplication readReplication;
+    @JsonProperty("at_bookmark")
+    private String atBookmark;
+    private String error;
+    private List<String> messages;
+    private String status;
+    private Boolean success;
+    private String type;
+    private ExportResult result;
 
     public String getCreatedAt() {
         return createdAt;
@@ -56,5 +66,37 @@ public class Result {
 
     public String getRunningInRegion() {
         return runningInRegion;
+    }
+
+    public ReadReplication getReadReplication() {
+        return readReplication;
+    }
+
+    public String getAtBookmark() {
+        return atBookmark;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public List<String> getMessages() {
+        return messages;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public Boolean getSuccess() {
+        return success;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public ExportResult getResult() {
+        return result;
     }
 }
