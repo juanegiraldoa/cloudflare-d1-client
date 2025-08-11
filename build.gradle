@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.github.juanegiraldoa'
-version = '20250811'
+version = '20250810'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -22,9 +22,9 @@ dependencies {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'com.github.juanegiraldoa'
+            groupId = project.group
             artifactId = 'cloudflare-d1-client'
-            version = '20250811'
+            version = project.version
             from components.java
         }
     }
