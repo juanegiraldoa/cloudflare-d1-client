@@ -1,8 +1,10 @@
 plugins {
     id 'java-library'
+    id 'maven-publish'
 }
 
-group = 'dev.juanes'
+group = 'com.github.juanegiraldoa'
+version = '20250810'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
