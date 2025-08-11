@@ -19,6 +19,17 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.19.2'
 }
 
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.github.juanegiraldoa'
+            artifactId = 'cloudflare-d1-client'
+            version = '20250810'
+            from components.java
+        }
+    }
+}
+
 test {
     useJUnitPlatform()
 }
