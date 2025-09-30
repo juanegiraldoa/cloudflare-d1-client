@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ImportExportResult {
     private String filename;
     @JsonProperty("signed_url")
-    private String singedUrl;
+    private String signedUrl;
     @JsonProperty("final_bookmark")
     private String finalBookmark;
     @JsonProperty("num_queries")
@@ -16,8 +16,8 @@ public class ImportExportResult {
         return filename;
     }
 
-    public String getSingedUrl() {
-        return singedUrl;
+    public String getSignedUrl() {
+        return signedUrl;
     }
 
     public String getFinalBookmark() {
