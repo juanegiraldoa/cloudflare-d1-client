@@ -1,5 +1,6 @@
 package dev.juanes;
 
+import dev.juanes.request.CreateDatabaseRequest;
 import dev.juanes.response.CreateDatabaseResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,7 +40,20 @@ class D1ClientTest {
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     void createDatabase() throws IOException, InterruptedException {
+        var httpClient = Mockito.mock(HttpClient.class);
+        var httpResponse = (HttpResponse<Object>) Mockito.mock(HttpResponse.class);
+
+        Mockito.when(httpResponse.statusCode()).thenReturn(200);
+        Mockito.when(httpResponse.body()).thenReturn("{}");
+
+        Mockito.when(httpClient.send(Mockito.any(HttpRequest.class), Mockito.any()))
+                .thenReturn(httpResponse);
+
+        var response = client.createDatabase(CreateDatabaseRequest.builder().build());
+
+        assertNotNull(response);
     }
 
     @Test
