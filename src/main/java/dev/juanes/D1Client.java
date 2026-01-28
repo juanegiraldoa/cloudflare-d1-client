@@ -26,6 +26,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Objects;
 
 public class D1Client {
     public static final String BASE_URL = "https://api.cloudflare.com/client/v4/";
@@ -173,13 +174,14 @@ public class D1Client {
         this.accessToken = builder.accessToken;
         this.objectMapper = new ObjectMapper()
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        this.client = HttpClient.newHttpClient();
+        this.client = Objects.nonNull(builder.httpClient) ? builder.httpClient : HttpClient.newHttpClient();
     }
 
     public static class Builder {
         private String databaseId;
         private String accountId;
         private String accessToken;
+        private HttpClient httpClient;
 
         public Builder withDatabaseId(String databaseId) {
             this.databaseId = databaseId;
@@ -193,6 +195,11 @@ public class D1Client {
 
         public Builder withAccessToken(String accessToken) {
             this.accessToken = accessToken;
+            return this;
+        }
+
+        public Builder withHttpClient(HttpClient httpClient) {
+            this.httpClient = httpClient;
             return this;
         }
 
