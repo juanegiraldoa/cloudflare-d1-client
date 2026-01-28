@@ -20,4 +20,4 @@ dependencies {
 }
 ```
 
-replace `RELEASE_TAG` with a specific release tag from: https://github.com/juanegiraldoa/cloudflare-d1-client/releases
+replace `RELEASE_TAG` with a specific release tag from [here](https://github.com/juanegiraldoa/cloudflare-d1-client/releases)
