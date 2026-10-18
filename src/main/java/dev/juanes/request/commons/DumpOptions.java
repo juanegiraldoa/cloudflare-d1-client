@@ -1,20 +1,26 @@
 package dev.juanes.request.commons;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class DumpOptions {
     @JsonProperty("no_data")
     private final Boolean noData;
+
     @JsonProperty("no_schema")
     private final Boolean noSchema;
+
     private final List<String> tables;
 
+    @JsonProperty("no_data")
     public Boolean getNoData() {
         return noData;
     }
 
+    @JsonProperty("no_schema")
     public Boolean getNoSchema() {
         return noSchema;
     }

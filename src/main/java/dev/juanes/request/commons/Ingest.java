@@ -1,17 +1,22 @@
 package dev.juanes.request.commons;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Ingest {
     private final String action;
+
     @JsonProperty("etag")
     private final String eTag;
+
     private final String filename;
 
     public String getAction() {
         return action;
     }
 
+    @JsonProperty("etag")
     public String getETag() {
         return eTag;
     }
@@ -28,8 +33,10 @@ public class Ingest {
 
     public static class Builder {
         private final String action = "ingest";
+
         @JsonProperty("etag")
         private String eTag;
+
         private String filename;
 
         public Builder withETag(String eTag) {

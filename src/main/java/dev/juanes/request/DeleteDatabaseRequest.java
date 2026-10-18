@@ -1,8 +1,11 @@
 package dev.juanes.request;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class DeleteDatabaseRequest {
     private final String databaseId;
 
+    @JsonIgnore
     public String getDatabaseId() {
         return databaseId;
     }

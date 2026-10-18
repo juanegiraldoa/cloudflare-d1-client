@@ -12,6 +12,10 @@ public class RawQueryDatabaseResponse extends Response {
         return result;
     }
 
+    public void setResult(List<Result> result) {
+        this.result = result;
+    }
+
     public static class Result {
         private Boolean success;
         private Meta meta;
@@ -21,12 +25,24 @@ public class RawQueryDatabaseResponse extends Response {
             return success;
         }
 
+        public void setSuccess(Boolean success) {
+            this.success = success;
+        }
+
         public Meta getMeta() {
             return meta;
         }
 
+        public void setMeta(Meta meta) {
+            this.meta = meta;
+        }
+
         public RawResult getResults() {
             return results;
+        }
+
+        public void setResults(RawResult results) {
+            this.results = results;
         }
 
         public static class RawResult {
@@ -37,8 +53,16 @@ public class RawQueryDatabaseResponse extends Response {
                 return columns;
             }
 
+            public void setColumns(List<String> columns) {
+                this.columns = columns;
+            }
+
             public List<List<Object>> getRows() {
                 return rows;
+            }
+
+            public void setRows(List<List<Object>> rows) {
+                this.rows = rows;
             }
         }
     }

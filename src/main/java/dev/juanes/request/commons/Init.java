@@ -1,9 +1,12 @@
 package dev.juanes.request.commons;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Init {
     private final String action;
+
     @JsonProperty("etag")
     private final String eTag;
 
@@ -11,7 +14,8 @@ public class Init {
         return action;
     }
 
-    public String geteTag() {
+    @JsonProperty("etag")
+    public String getETag() {
         return eTag;
     }
 
@@ -22,6 +26,7 @@ public class Init {
 
     public static class Builder {
         private final String action = "init";
+
         @JsonProperty("etag")
         private String eTag;
 

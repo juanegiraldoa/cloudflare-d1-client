@@ -9,4 +9,8 @@ public class ExportDatabaseAsSQLResponse extends Response {
     public Result getResult() {
         return result;
     }
+
+    public void setResult(Result result) {
+        this.result = result;
+    }
 }

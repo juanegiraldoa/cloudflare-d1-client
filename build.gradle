@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.github.juanegiraldoa'
-version = '20260127'
+version = '20260420'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.19.2'
+    implementation 'tools.jackson.core:jackson-databind:3.1.2'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.10.0'

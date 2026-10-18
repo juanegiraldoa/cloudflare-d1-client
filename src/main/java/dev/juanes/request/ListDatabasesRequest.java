@@ -1,5 +1,7 @@
 package dev.juanes.request;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,9 +24,15 @@ public class ListDatabasesRequest {
 
     public String query() {
         List<String> params = new ArrayList<>();
-        if (name != null) params.add("name=" + name);
-        if (page != null) params.add("page=" + page);
-        if (perPage != null) params.add("per_page=" + perPage);
+        if (name != null) {
+            params.add("name=" + URLEncoder.encode(name, StandardCharsets.UTF_8));
+        }
+        if (page != null) {
+            params.add("page=" + page);
+        }
+        if (perPage != null) {
+            params.add("per_page=" + perPage);
+        }
         return String.join("&", params);
     }
 

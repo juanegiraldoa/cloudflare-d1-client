@@ -7,7 +7,15 @@ public class Response {
     private List<Message> messages;
     private List<Message> errors;
 
-    public Boolean isSuccess() {
+    public Boolean getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(Boolean success) {
+        this.success = success;
+    }
+
+    public boolean isSuccess() {
         return Boolean.TRUE.equals(success);
     }
 
@@ -15,7 +23,15 @@ public class Response {
         return messages;
     }
 
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
     public List<Message> getErrors() {
         return errors;
+    }
+
+    public void setErrors(List<Message> errors) {
+        this.errors = errors;
     }
 }

@@ -1,9 +1,12 @@
 package dev.juanes.request.commons;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Poll {
     private final String action;
+
     @JsonProperty("current_bookmark")
     private final String currentBookmark;
 
@@ -11,6 +14,7 @@ public class Poll {
         return action;
     }
 
+    @JsonProperty("current_bookmark")
     public String getCurrentBookmark() {
         return currentBookmark;
     }

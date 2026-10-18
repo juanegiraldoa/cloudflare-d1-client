@@ -9,6 +9,7 @@ import java.util.List;
 
 public class ListDatabasesResponse extends Response {
     private List<Result> result;
+
     @JsonProperty("result_info")
     private ResultInfo resultInfo;
 
@@ -16,7 +17,17 @@ public class ListDatabasesResponse extends Response {
         return result;
     }
 
+    public void setResult(List<Result> result) {
+        this.result = result;
+    }
+
+    @JsonProperty("result_info")
     public ResultInfo getResultInfo() {
         return resultInfo;
+    }
+
+    @JsonProperty("result_info")
+    public void setResultInfo(ResultInfo resultInfo) {
+        this.resultInfo = resultInfo;
     }
 }
